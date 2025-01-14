@@ -1,0 +1,369 @@
+******************************************************************************
+               TMS320C6x Linker PC v8.3.8                      
+******************************************************************************
+>> Linked Tue Dec  3 12:56:20 2024
+
+OUTPUT FILE NAME:   <Flanging Effect.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 11802620
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  VECTORS               11800000   00000200  00000200  00000000  RWIX
+  DSPRAM                11800200   0003fe00  00002bf0  0003d210  RWIX
+  SHAREDRAM             80000000   00020000  00000000  00020000  RWIX
+  SDRAM                 c0000000   08000000  0005df00  07fa2100  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+11800000    11800000    000028c0   000028c0    r-x
+  11800000    11800000    00000200   00000200    r-x vectors
+  11800200    11800200    000026c0   000026c0    r-x .text
+118028c0    118028c0    0000044c   00000000    rw-
+  118028c0    118028c0    00000400   00000000    rw- .stack
+  11802cc0    11802cc0    0000004c   00000000    rw- .fardata
+11802d0c    11802d0c    00000018   00000018    r--
+  11802d0c    11802d0c    00000018   00000018    r-- .switch
+11802d24    11802d24    00000024   00000000    rw-
+  11802d24    11802d24    00000010   00000000    rw- .neardata
+  11802d34    11802d34    0000000c   00000000    rw- .bss
+  11802d40    11802d40    00000008   00000000    rw- .far
+11802d48    11802d48    000000a8   000000a8    r--
+  11802d48    11802d48    000000a8   000000a8    r-- .cinit
+c0000000    c0000000    0005df00   00000000    rw-
+  c0000000    c0000000    0005df00   00000000    rw- CE0
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+vectors    0    11800000    00000200     
+                  11800000    00000200     vectors.obj (vectors)
+
+.fardata   0    11802cc0    0000004c     UNINITIALIZED
+                  11802cc0    00000040     rts6740_elf.lib : cos.c.obj (.fardata:R$1)
+                  11802d00    0000000c                     : exit.c.obj (.fardata)
+
+.neardata 
+*          0    11802d24    00000010     UNINITIALIZED
+                  11802d24    0000000c     ISRs_B.obj (.neardata)
+                  11802d30    00000004     LCDK_Support_DSP.obj (.neardata)
+
+.bss       0    11802d34    0000000c     UNINITIALIZED
+                  11802d34    00000004     (.common:xLeft)
+                  11802d38    00000004     (.common:xRight)
+                  11802d3c    00000004     (.common:yLeft)
+
+.cinit     0    11802d48    000000a8     
+                  11802d48    00000049     (.cinit..fardata.load) [load image, compression = rle]
+                  11802d91    0000000e     (.cinit..neardata.load) [load image, compression = rle]
+                  11802d9f    0000000d     (.cinit.CE0.load) [load image, compression = rle]
+                  11802dac    00000009     (.cinit..bss.load) [load image, compression = rle]
+                  11802db5    00000009     (.cinit..far.load) [load image, compression = rle]
+                  11802dbe    00000002     --HOLE-- [fill = 0]
+                  11802dc0    00000008     (__TI_handler_table)
+                  11802dc8    00000028     (__TI_cinit_table)
+
+.stack     0    118028c0    00000400     UNINITIALIZED
+                  118028c0    00000008     rts6740_elf.lib : boot.c.obj (.stack)
+                  118028c8    000003f8     --HOLE--
+
+.text      0    11800200    000026c0     
+                  11800200    00000de0     LCDK_Support_DSP.obj (.text)
+                  11800fe0    000005e0     rts6740_elf.lib : divd.c.obj (.text:__c6xabi_divd)
+                  118015c0    00000320                     : cos.c.obj (.text:cos)
+                  118018e0    000002a0     ISRs_B.obj (.text:retain)
+                  11801b80    00000280     rts6740_elf.lib : divf.c.obj (.text:__c6xabi_divf)
+                  11801e00    00000120     StartUp.obj (.text)
+                  11801f20    00000100     rts6740_elf.lib : copy_decompress_rle.c.obj (.text:__TI_decompress_rle_core)
+                  11802020    000000e0                     : exit.c.obj (.text:exit)
+                  11802100    000000e0                     : memset.c.obj (.text:memset)
+                  118021e0    000000c0                     : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  118022a0    000000c0                     : divu.asm.obj (.text:__divu)
+                  11802360    000000c0                     : modf.c.obj (.text:modf)
+                  11802420    000000c0                     : tls.c.obj (.text:tls:init:__TI_tls_init)
+                  118024e0    000000a0                     : round.c.obj (.text:__c6xabi_nround)
+                  11802580    000000a0                     : memcpy64.asm.obj (.text:memcpy)
+                  11802620    00000080                     : boot.c.obj (.text:_c_int00)
+                  118026a0    00000060     ISRs_B.obj (.text)
+                  11802700    00000060     rts6740_elf.lib : llshift.c.obj (.text:__c6xabi_llshru)
+                  11802760    00000040                     : frcmpyd_div.c.obj (.text:__TI_frcmpyd_div)
+                  118027a0    00000040                     : args_main.c.obj (.text:_args_main)
+                  118027e0    00000020                     : trunc.c.obj (.text:__c6xabi_trunc)
+                  11802800    00000020                     : startup.c.obj (.text:_system_post_cinit)
+                  11802820    00000020                     : pre_init.c.obj (.text:_system_pre_init)
+                  11802840    00000020                     : exit.c.obj (.text:abort)
+                  11802860    00000020                     : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  11802880    00000020                     : copy_decompress_rle.c.obj (.text:decompress:rle24:__TI_decompress_rle24)
+                  118028a0    00000020     main.obj (.text)
+
+.switch    0    11802d0c    00000018     
+                  11802d0c    00000018     LCDK_Support_DSP.obj (.switch:SetSampleRate_AIC3106)
+
+.far       0    11802d40    00000008     UNINITIALIZED
+                  11802d40    00000004     (.common:CodecDataIn)
+                  11802d44    00000004     (.common:CodecDataOut)
+
+CE0        0    c0000000    0005df00     UNINITIALIZED
+                  c0000000    0005dc00     StartUp.obj (CE0)
+                  c005dc00    00000300     ISRs_B.obj (CE0)
+
+MODULE SUMMARY
+
+       Module                       code    ro data   rw data
+       ------                       ----    -------   -------
+    .\
+       StartUp.obj                  288     0         384000 
+       LCDK_Support_DSP.obj         3552    24        4      
+       ISRs_B.obj                   768     0         800    
+       vectors.obj                  512     0         0      
+       main.obj                     32      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       5152    24        384804 
+                                                             
+    C:/ProgramData/App-V/883E8076-D99D-4911-93C4-940332A6BE1F/BFE39798-EFFD-4CAF-929B-E5A85FC35347/Root/ccs/tools/compiler/ti-cgt-c6000_8.3.8/lib/rts6740_elf.lib
+       divd.c.obj                   1504    0         0      
+       cos.c.obj                    800     0         64     
+       divf.c.obj                   640     0         0      
+       copy_decompress_rle.c.obj    288     0         0      
+       exit.c.obj                   256     0         12     
+       memset.c.obj                 224     0         0      
+       autoinit.c.obj               192     0         0      
+       divu.asm.obj                 192     0         0      
+       modf.c.obj                   192     0         0      
+       tls.c.obj                    192     0         0      
+       memcpy64.asm.obj             160     0         0      
+       round.c.obj                  160     0         0      
+       boot.c.obj                   128     0         0      
+       llshift.c.obj                96      0         0      
+       args_main.c.obj              64      0         0      
+       frcmpyd_div.c.obj            64      0         0      
+       copy_decompress_none.c.obj   32      0         0      
+       pre_init.c.obj               32      0         0      
+       startup.c.obj                32      0         0      
+       trunc.c.obj                  32      0         0      
+    +--+----------------------------+-------+---------+---------+
+       Total:                       5280    0         76     
+                                                             
+       Stack:                       0       0         1024   
+       Linker Generated:            0       166       0      
+    +--+----------------------------+-------+---------+---------+
+       Grand Total:                 10432   190       385904 
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 11802dc8 records: 5, size/record: 8, table size: 40
+	.fardata: load addr=11802d48, load size=00000049 bytes, run addr=11802cc0, run size=0000004c bytes, compression=rle
+	.neardata: load addr=11802d91, load size=0000000e bytes, run addr=11802d24, run size=00000010 bytes, compression=rle
+	CE0: load addr=11802d9f, load size=0000000d bytes, run addr=c0000000, run size=0005df00 bytes, compression=rle
+	.bss: load addr=11802dac, load size=00000009 bytes, run addr=11802d34, run size=0000000c bytes, compression=rle
+	.far: load addr=11802db5, load size=00000009 bytes, run addr=11802d40, run size=00000008 bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 11802dc0 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+118008f8  AIC3106_write_reg              
+c0000000  Beta                           
+11802840  C$$EXIT                        
+11800694  CheckForOverrun                
+11802d40  CodecDataIn                    
+11802d44  CodecDataOut                   
+118018e0  Codec_ISR                      
+1180020c  DSP_Init                       
+1180022c  DSP_Init_EDMA                  
+1180042c  EnableInterrupts               
+11800484  EnableInterrupts_EDMA          
+11800200  GetSampleFreq                  
+118003c4  InitDigitalOutputs             
+1180024c  InitLEDs                       
+118006c0  Init_AIC3106                   
+118004f4  Init_I2C                       
+118003f0  Init_Interrupts                
+1180046c  Init_Interrupts_EDMA           
+11800ab4  Init_McASP0                    
+11800e34  Init_UART2                     
+11800f70  IsDataReady_UART2              
+11800fa0  IsTxReady_UART2                
+11800f0c  Puts_UART2                     
+1180064c  ReadCodecData                  
+118003a8  ReadSwitches                   
+11800f4c  Read_UART2                     
+11800938  Reset_AIC3106                  
+11800544  Reset_I2C                      
+11800964  SetSampleRate_AIC3106          
+11801e00  StartUp                        
+1180066c  WriteCodecData                 
+118003d0  WriteDigitalOutputs            
+118002c0  WriteLEDs                      
+11800568  Write_I2C                      
+11800ee0  Write_UART2                    
+118026a0  ZeroBuffer                     
+11802dc8  __TI_CINIT_Base                
+11802df0  __TI_CINIT_Limit               
+11802dc0  __TI_Handler_Table_Base        
+11802dc8  __TI_Handler_Table_Limit       
+11802cc0  __TI_STACK_END                 
+00000400  __TI_STACK_SIZE                
+11802d24  __TI_STATIC_BASE               
+UNDEFED   __TI_TLS_INIT_Base             
+UNDEFED   __TI_TLS_INIT_Limit            
+118021e0  __TI_auto_init_nobinit_nopinit 
+11802d00  __TI_cleanup_ptr               
+11802860  __TI_decompress_none           
+11802880  __TI_decompress_rle24          
+11802d04  __TI_dtors_ptr                 
+11802d08  __TI_enable_exit_profile_output
+11802760  __TI_frcmpyd_div               
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+11802420  __TI_tls_init                  
+ffffffff  __binit__                      
+11800fe0  __c6xabi_divd                  
+11801b80  __c6xabi_divf                  
+118022a0  __c6xabi_divu                  
+11802700  __c6xabi_llshru                
+118024e0  __c6xabi_nround                
+118024e0  __c6xabi_roundl                
+118027e0  __c6xabi_trunc                 
+118027e0  __c6xabi_truncl                
+ffffffff  __c_args__                     
+118022a0  __divu                         
+118027a0  _args_main                     
+11802620  _c_int00                       
+118028c0  _stack                         
+11802800  _system_post_cinit             
+11802820  _system_pre_init               
+11802840  abort                          
+ffffffff  binit                          
+c005dc00  buffer                         
+118015c0  cos                            
+118015c0  cosl                           
+11802020  exit                           
+11802d2c  gain                           
+11802d28  index                          
+118028a0  main                           
+11802580  memcpy                         
+11802100  memset                         
+11802360  modf                           
+11802360  modfl                          
+11802d24  oldest                         
+118004c4  wait                           
+11802d34  xLeft                          
+11802d38  xRight                         
+11802d3c  yLeft                          
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000400  __TI_STACK_SIZE                
+11800200  GetSampleFreq                  
+1180020c  DSP_Init                       
+1180022c  DSP_Init_EDMA                  
+1180024c  InitLEDs                       
+118002c0  WriteLEDs                      
+118003a8  ReadSwitches                   
+118003c4  InitDigitalOutputs             
+118003d0  WriteDigitalOutputs            
+118003f0  Init_Interrupts                
+1180042c  EnableInterrupts               
+1180046c  Init_Interrupts_EDMA           
+11800484  EnableInterrupts_EDMA          
+118004c4  wait                           
+118004f4  Init_I2C                       
+11800544  Reset_I2C                      
+11800568  Write_I2C                      
+1180064c  ReadCodecData                  
+1180066c  WriteCodecData                 
+11800694  CheckForOverrun                
+118006c0  Init_AIC3106                   
+118008f8  AIC3106_write_reg              
+11800938  Reset_AIC3106                  
+11800964  SetSampleRate_AIC3106          
+11800ab4  Init_McASP0                    
+11800e34  Init_UART2                     
+11800ee0  Write_UART2                    
+11800f0c  Puts_UART2                     
+11800f4c  Read_UART2                     
+11800f70  IsDataReady_UART2              
+11800fa0  IsTxReady_UART2                
+11800fe0  __c6xabi_divd                  
+118015c0  cos                            
+118015c0  cosl                           
+118018e0  Codec_ISR                      
+11801b80  __c6xabi_divf                  
+11801e00  StartUp                        
+11802020  exit                           
+11802100  memset                         
+118021e0  __TI_auto_init_nobinit_nopinit 
+118022a0  __c6xabi_divu                  
+118022a0  __divu                         
+11802360  modf                           
+11802360  modfl                          
+11802420  __TI_tls_init                  
+118024e0  __c6xabi_nround                
+118024e0  __c6xabi_roundl                
+11802580  memcpy                         
+11802620  _c_int00                       
+118026a0  ZeroBuffer                     
+11802700  __c6xabi_llshru                
+11802760  __TI_frcmpyd_div               
+118027a0  _args_main                     
+118027e0  __c6xabi_trunc                 
+118027e0  __c6xabi_truncl                
+11802800  _system_post_cinit             
+11802820  _system_pre_init               
+11802840  C$$EXIT                        
+11802840  abort                          
+11802860  __TI_decompress_none           
+11802880  __TI_decompress_rle24          
+118028a0  main                           
+118028c0  _stack                         
+11802cc0  __TI_STACK_END                 
+11802d00  __TI_cleanup_ptr               
+11802d04  __TI_dtors_ptr                 
+11802d08  __TI_enable_exit_profile_output
+11802d24  __TI_STATIC_BASE               
+11802d24  oldest                         
+11802d28  index                          
+11802d2c  gain                           
+11802d34  xLeft                          
+11802d38  xRight                         
+11802d3c  yLeft                          
+11802d40  CodecDataIn                    
+11802d44  CodecDataOut                   
+11802dc0  __TI_Handler_Table_Base        
+11802dc8  __TI_CINIT_Base                
+11802dc8  __TI_Handler_Table_Limit       
+11802df0  __TI_CINIT_Limit               
+c0000000  Beta                           
+c005dc00  buffer                         
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   __TI_TLS_INIT_Base             
+UNDEFED   __TI_TLS_INIT_Limit            
+
+[90 symbols]
