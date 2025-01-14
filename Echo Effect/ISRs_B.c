@@ -1,13 +1,3 @@
-// Welch, Wright, & Morrow, 
-// Real-time Digital Signal Processing, 2017
-
-///////////////////////////////////////////////////////////////////////
-// Filename: ISRs.c
-//
-// Synopsis: Interrupt service routine for codec data transmit/receive
-//
-///////////////////////////////////////////////////////////////////////
-
 #include "DSP_Config.h" 
 #include "Echo.h" 
   
